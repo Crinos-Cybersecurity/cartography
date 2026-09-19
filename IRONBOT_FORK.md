@@ -18,7 +18,7 @@ repositório no momento do fork, não assumida por nome.
 
 ## Remotos configurados
 
-- `origin` → nosso fork (`angelotieres/cartography`, onde fazemos push)
+- `origin` → nosso fork (`Crinos-Cybersecurity/cartography`, onde fazemos push)
 - `upstream` → repositório oficial atual, `cartography-cncf/cartography`
   — só pull/fetch, nunca push
 
