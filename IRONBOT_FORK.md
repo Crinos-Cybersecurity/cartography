@@ -1,12 +1,21 @@
 # cartography (fork interno) — documentação do IronBOT
 
-**Nota**: o arquivo `CLAUDE.md` deste diretório já existe no upstream
-(symlink pra `AGENTS.md`, guia de contribuição de módulos do próprio
-Cartography) — não sobrescrito, de propósito, pra não destruir conteúdo
-real deles. Este arquivo (`IRONBOT_FORK.md`) é o equivalente do
-`strix/CLAUDE.md`/`cloud-tools/prowler/CLAUDE.md` pra este fork
-específico — mesmo conteúdo/propósito, nome diferente só por causa
-dessa colisão.
+> Carregado automaticamente pelo OpenCode via `instructions` no `opencode.json` deste repo.
+
+**Nota sobre colisão de nome**: o arquivo `CLAUDE.md` deste diretório já
+existe no upstream (symlink pra `AGENTS.md`, guia de contribuição de
+módulos do próprio Cartography) — não sobrescrito, de propósito, pra não
+destruir conteúdo real deles. Por isso o documento do nosso fork se chama
+`IRONBOT_FORK.md` — mesmo nome convencionado para todos os forks do
+projeto (`strix/IRONBOT_FORK.md`, `cloud-tools/prowler/IRONBOT_FORK.md`),
+mesmo conteúdo/propósito, nome diferente só por causa dessa colisão.
+
+**Por que o nome sozinho não bastava**: o OpenCode carrega o `AGENTS.md`
+do diretório de trabalho e dos ancestrais dele, e só usa `CLAUDE.md` como
+*fallback* quando **não existe** `AGENTS.md` no mesmo diretório — "the
+first matching file wins in each category"
+(https://opencode.ai/docs/rules/). Como o upstream tem `AGENTS.md`, é o
+`opencode.json` deste repo que garante que este arquivo seja lido.
 
 Este diretório é um FORK do Cartography open source. **Achado real ao
 forkar (2026-09-16)**: o repositório MUDOU de organização — não está
@@ -30,7 +39,7 @@ paridade total com o upstream. É invocado como CLI (`cartography
 da instância "cloud", sincronizando dados reais da conta AWS do
 cliente pra dentro de um Neo4j EFÊMERO (um container por scan, nunca
 compartilhado entre execuções — ver justificativa de isolamento
-multi-tenant em `backend/CLAUDE.md`).
+multi-tenant em `backend/AGENTS.md`).
 
 ## Estratégia de merge com upstream
 
@@ -38,11 +47,11 @@ Sem nenhuma customização hoje, sync com upstream deveria ser sempre
 limpo. Se precisarmos de um sync novo (ex.: um recurso AWS que o
 Cartography ainda não coleta), preferir contribuir/aguardar upstream em
 vez de fork permanente divergente, dado que o projeto é mantido pela
-CNCF (ciclo de release ativo) — mesma disciplina do `strix/CLAUDE.md`.
+CNCF (ciclo de release ativo) — mesma disciplina do `strix/IRONBOT_FORK.md`.
 
 ## Integração com o resto do projeto
 
-- **Papel no pipeline de nuvem** (ver `backend/CLAUDE.md`, seção
+- **Papel no pipeline de nuvem** (ver `backend/AGENTS.md`, seção
   "Correlação de cadeia de ataque em nuvem (AWS) — MVP"): constrói o
   grafo real da conta AWS (IAM roles/users/policies, S3, EC2, VPC/SG,
   Lambda...) — a SEGUNDA fonte de dado da correlação (a primeira é o
@@ -72,7 +81,7 @@ do deploy — um upgrade que renomeie ou remova um módulo de sync quebraria
 a lista de `--aws-requested-syncs` do worker em silêncio.
 
 **VENV DEDICADO, não compartilhado com o Prowler** — os dois têm
-conflito duro de dependências (detalhe em `cloud-tools/prowler/CLAUDE.md`).
+conflito duro de dependências (detalhe em `cloud-tools/prowler/IRONBOT_FORK.md`).
 
 Neo4j continua efêmero via Docker (imagem oficial `neo4j`, subida e
 derrubada pelo worker a cada scan — nunca um serviço permanente na
